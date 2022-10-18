@@ -1,5 +1,5 @@
 //https://www.codingninjas.com/codestudio/problems/1115652
-
+//Brute: O(N^2)
 #include <bits/stdc++.h> 
 int subarraysXor(vector<int> &arr, int x)
 {
