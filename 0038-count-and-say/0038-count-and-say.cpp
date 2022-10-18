@@ -17,7 +17,7 @@ public:
         string res = "11";
         
         for(int i=3; i<=n; i++){
-            res += '#';             //exra overhead for reading last char
+            res += '#';             //exra overhead for reading last char as we loop from 1 to n
             string temp = "";
             int count = 1;
             for(int j=1; j<res.length(); j++){
