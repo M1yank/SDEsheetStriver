@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+    //O(m+n)
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         if(!l1) return l2;
         if(!l2) return l1;
@@ -32,12 +33,8 @@ public:
                 tail->next = l2; tail = l2; l2 = l2->next;
             }
         }
-        
         if(!l1) tail->next = l2;
         else tail->next = l1;
-        
-        
-        
         return head;
     }
 };
