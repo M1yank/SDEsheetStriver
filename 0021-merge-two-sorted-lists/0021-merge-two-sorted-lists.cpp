@@ -8,36 +8,36 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-// class Solution {
-// public:
-//     //Iterative: O(m+n)
-//     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-//         if(!l1) return l2;
-//         if(!l2) return l1;
+class Solution {
+public:
+    //Iterative: O(m+n)
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(!l1) return l2;
+        if(!l2) return l1;
         
-//         ListNode *head = nullptr, *tail = nullptr;
-//         if(l1->val <= l2->val) {
-//             head = tail = l1;
-//             l1 = l1->next;
-//         }
-//         else{
-//             head = tail = l2;
-//             l2 = l2->next;
-//         }
+        ListNode *head = nullptr, *tail = nullptr;
+        if(l1->val <= l2->val) {
+            head = tail = l1;
+            l1 = l1->next;
+        }
+        else{
+            head = tail = l2;
+            l2 = l2->next;
+        }
         
-//         while(l1 && l2){
-//             if(l1->val <= l2->val){
-//                 tail->next = l1; tail = l1; l1 = l1->next;
-//             }
-//             else{
-//                 tail->next = l2; tail = l2; l2 = l2->next;
-//             }
-//         }
-//         if(!l1) tail->next = l2;
-//         else tail->next = l1;
-//         return head;
-//     }
-// };
+        while(l1 && l2){
+            if(l1->val <= l2->val){
+                tail->next = l1; tail = l1; l1 = l1->next;
+            }
+            else{
+                tail->next = l2; tail = l2; l2 = l2->next;
+            }
+        }
+        if(!l1) tail->next = l2;
+        else tail->next = l1;
+        return head;
+    }
+};
 
 /*
     10      20      30       40      
@@ -50,22 +50,22 @@
     
 */
 
-class Solution {
-public:
-    //Recurive
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        if(!l1) return l2;
-        if(!l2) return l1;
+// class Solution {
+// public:
+//     //Recurive
+//     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+//         if(!l1) return l2;
+//         if(!l2) return l1;
         
-        if(l1->val <= l2->val) {
-            l1->next = mergeTwoLists(l1->next, l2);
-            return l1;
-        }
-        else{
-            l2->next = mergeTwoLists(l1, l2->next);
-            return l2;
-        }
+//         if(l1->val <= l2->val) {
+//             l1->next = mergeTwoLists(l1->next, l2);
+//             return l1;
+//         }
+//         else{
+//             l2->next = mergeTwoLists(l1, l2->next);
+//             return l2;
+//         }
         
 
-    }
-};
+//     }
+// };
