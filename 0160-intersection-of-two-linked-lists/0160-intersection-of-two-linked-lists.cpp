@@ -15,12 +15,10 @@ public:
         ListNode *b = headB;
         
         while(a!=b){
-            a = (a == nullptr) ? headB : a->next;
-            b = (b == nullptr) ? headA : b->next;
+            a = (a == nullptr) ? headB : a->next;   //reset a to bHead if null
+            b = (b == nullptr) ? headA : b->next;   //reset b to aHead if null
         }
         
         return a; //at some point if no intersection than also both will be same i.e. nullptr
-        
-        
     }
 };
