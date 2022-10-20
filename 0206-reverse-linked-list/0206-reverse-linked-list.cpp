@@ -22,26 +22,45 @@
 //         return newhead;
 //     }
 // };
+// class Solution {
+// public:
+//     ListNode* reverseList(ListNode* head) {
+//         //iterative
+//         if(!head || !head->next) return head;
+        
+//         ListNode *prev = nullptr;
+//         ListNode *curr = head;
+//         ListNode *newh = head->next;
+        
+//         while(curr){
+//             curr->next = prev;
+//             prev = curr;
+//             curr = newh;
+//             if(newh) newh = newh->next;
+//         }
+//        return prev;
+//     }
+// };
+
 class Solution {
 public:
+    //recursive
+    
+    ListNode* reverse(ListNode* head) {
+        
+        if(!head->next) return head;
+        
+        ListNode* reverseHead = reverse(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return reverseHead;
+    
+    }
     ListNode* reverseList(ListNode* head) {
-        //iterative
-        if(!head || !head->next) return head;
-        
-        ListNode *prev = nullptr;
-        ListNode *curr = head;
-        ListNode *newh = head->next;
-        
-        while(curr){
-            curr->next = prev;
-            prev = curr;
-            curr = newh;
-            if(newh) newh = newh->next;
-        }
-       return prev;
+        if(!head) return head; 
+        return reverse(head);
     }
 };
-
 
 
 
