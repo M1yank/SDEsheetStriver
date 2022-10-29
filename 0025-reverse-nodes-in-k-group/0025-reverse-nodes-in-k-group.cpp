@@ -31,7 +31,6 @@ public:
             count++;
         }
         
-        
         while(count>=k){
             curr = prev->next;
             foll = curr->next;
